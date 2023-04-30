@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "ChatGPT Speech Synthesis",
+    "version": "1.0",
+    "description": "Bring ChatGPT to life with speech synthesis!",
+    "icons": {
+        "64": "icon64.png",
+        "128": "icon128.png",
+        "512": "icon512.png"
+      },    "content_scripts": [
+      {
+        "matches": [
+          "https://chat.openai.com/*"
+        ],
+        "js": ["main.js"]
+      }
+    ]
+  }
+  

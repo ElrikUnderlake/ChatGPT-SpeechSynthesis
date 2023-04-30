@@ -1,0 +1,26 @@
+{
+    "model": "stable diffusion",
+    "model_weights": "rmadaMergeSD21768_v70",
+    "model_hash": "a1ff5211534f5fdcb392c8cc994034b6a2e080f1f13fadee0cc78ba4fa347893",
+    "app_id": "invoke-ai/InvokeAI",
+    "app_version": "2.3.4.post1",
+    "image": {
+      "prompt": "SVG Icon of a female Robot talking [3d render, digital art, rmadanegative, low rez]",
+      "steps": 15,
+      "cfg_scale": 7.5,
+      "threshold": 0,
+      "perlin": 0,
+      "height": 512,
+      "width": 512,
+      "seed": 613784574,
+      "seamless": false,
+      "type": "img2img",
+      "postprocessing": null,
+      "sampler": "ddim",
+      "variations": [],
+      "strength": 0.75,
+      "fit": true,
+      "orig_hash": "c8dad2d6af8057ecda382df3e90cef854fa7d85c558d5bcaa3f21694b0a02b6b",
+      "init_image_path": "outputs/000076.7d85c34e.2483011743.png"
+    }
+  }
