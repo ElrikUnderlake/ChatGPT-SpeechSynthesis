@@ -1,8 +1,10 @@
 # ChatGPT-SpeechSynthesis
 ## Overview
+![ChatGPT Speech Synthesis](./icon128.png)
+
 Adds Text to speech to ChatGPT's UI using Chrome's SpeechSynthesis
 
-![ChatGPT Speech Synthesis](./icon512.png)
+![Screenshot](./screenshot.png)
 ## Inspiration
 Inspired by [chatgptreader](https://github.com/shreyas-jadhav/chatgptreader/). Check them out for an alternative TTS experience
 
