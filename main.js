@@ -44,6 +44,23 @@ function speakChunks(utterance, allChunksCompleteCallback) {
   const chunks = [];
 
   let startIndex = 0;
+
+  const speakNextChunk = () => {
+    if (chunks.length === 0) {
+      return;
+    }
+    const chunkUtterance = chunks.shift();
+    window.speechSynthesis.speak(chunkUtterance);
+  };
+
+  const handleUtteranceEnd = () => {
+    if (chunks.length > 0) {
+      speakNextChunk();
+    } else {
+      allChunksCompleteCallback();
+    }
+  };
+
   while (startIndex < text.length) {
     let endIndex = startIndex + MAX_CHUNK_LENGTH;
     while (endIndex < text.length && text[endIndex] !== ' ') {
@@ -51,31 +68,17 @@ function speakChunks(utterance, allChunksCompleteCallback) {
     }
 
     const chunk = text.slice(startIndex, endIndex).trim();
+    const chunkUtterance = new SpeechSynthesisUtterance(chunk);
+    chunkUtterance.voice = utterance.voice;
+    chunkUtterance.rate = utterance.rate;
+    chunkUtterance.onend = handleUtteranceEnd
+
     if (chunk.length > 0) {
-      chunks.push(chunk);
+      chunks.push(chunkUtterance);
     }
     startIndex = endIndex;
   }
 
-  const speakNextChunk = () => {
-    if (chunks.length === 0) {
-      return;
-    }
-    const chunk = chunks.shift();
-    const chunkUtterance = new SpeechSynthesisUtterance(chunk);
-    chunkUtterance.voice = utterance.voice;
-    chunkUtterance.rate = utterance.rate;
-
-    chunkUtterance.onend = () => {
-      if (chunks.length > 0) {
-        speakNextChunk();
-      } else {
-        allChunksCompleteCallback();
-      }
-    };
-
-    window.speechSynthesis.speak(chunkUtterance);
-  };
 
   speakNextChunk();
 }
