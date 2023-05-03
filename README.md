@@ -10,9 +10,11 @@ Inspired by [chatgptreader](https://github.com/shreyas-jadhav/chatgptreader/). C
 
 ## Installation
 
-[Webstore](https://chrome.google.com/webstore/detail/fhnfinocmleiilmajigpbdjcaacgmfop/) (pending approval). For now you can  this repo and manually install:
+[Webstore](https://chrome.google.com/webstore/detail/fhnfinocmleiilmajigpbdjcaacgmfop/).
+
+You can also manually install:
 1. `git clone git@github.com:ElrikUnderlake/ChatGPT-SpeechSynthesis.git`
 2. Visit: chrome://extensions/
 3. In upper right, enable **Developer mode**
 4. Click the new **Load unpacked** button
-5. Navigate to where you git cloned this repository at and select that folder
+5. Navigate to the repo and select that folder
