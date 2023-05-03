@@ -40,7 +40,7 @@ function getActiveContainer() {
 
 function speakChunks(utterance, allChunksCompleteCallback) {
   const text = utterance.text;
-  const MAX_CHUNK_LENGTH = 100;
+  const MAX_CHUNK_LENGTH = 200;
   const chunks = [];
 
   let startIndex = 0;
@@ -63,25 +63,40 @@ function speakChunks(utterance, allChunksCompleteCallback) {
 
   while (startIndex < text.length) {
     let endIndex = startIndex + MAX_CHUNK_LENGTH;
-    while (endIndex < text.length && text[endIndex] !== ' ') {
+
+    while (endIndex < text.length && text[endIndex] !== '.' && text[endIndex] !== '?' && text[endIndex] !== '!') {
       endIndex--;
     }
 
-    const chunk = text.slice(startIndex, endIndex).trim();
+    if (endIndex >= text.length) {
+      endIndex = startIndex + MAX_CHUNK_LENGTH;
+      while (endIndex < text.length && text[endIndex] !== ',') {
+        endIndex--;
+      }
+    }
+
+    if (endIndex >= text.length) {
+      endIndex = startIndex + MAX_CHUNK_LENGTH;
+      while (endIndex < text.length && text[endIndex] !== ' ') {
+        endIndex--;
+      }
+    }
+
+    const chunk = text.slice(startIndex, endIndex + 1).trim();
     const chunkUtterance = new SpeechSynthesisUtterance(chunk);
+    console.log('chunk == ', chunk.length, chunk)
     chunkUtterance.voice = utterance.voice;
     chunkUtterance.rate = utterance.rate;
-    chunkUtterance.onend = handleUtteranceEnd
+    chunkUtterance.onend = handleUtteranceEnd;
 
     if (chunk.length > 0) {
       chunks.push(chunkUtterance);
     }
-    startIndex = endIndex;
+    startIndex = endIndex + 1;
   }
-
-
   speakNextChunk();
 }
+
 
 function getTextToRead(button, chatType) {
   let container;
