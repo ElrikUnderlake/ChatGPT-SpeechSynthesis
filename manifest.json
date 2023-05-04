@@ -7,13 +7,16 @@
         "64": "icon64.png",
         "128": "icon128.png",
         "512": "icon512.png"
-      },    "content_scripts": [
+      },
+    "content_scripts": [
       {
         "matches": [
           "https://chat.openai.com/*"
         ],
         "js": ["main.js"]
       }
-    ]
+    ],
+    "permissions": [],
+    "host_permissions": []
   }
   

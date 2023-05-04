@@ -18,3 +18,7 @@ You can also manually install:
 3. In upper right, enable **Developer mode**
 4. Click the new **Load unpacked** button
 5. Navigate to the repo and select that folder
+
+### Updating a manual installation
+1. `git pull` from remote
+2. In chrome://extensions/, click the refresh button next to the extension
