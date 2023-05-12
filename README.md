@@ -1,8 +1,8 @@
-# ChatGPT-SpeechSynthesis
+# ChatGPT Speech Synthesis
 ## Overview
 ![ChatGPT Speech Synthesis](./icon128.png)
 
-Adds Text to speech to ChatGPT's UI using Chrome's SpeechSynthesis
+Adds Text to speech to ChatGPT's UI using Chrome's Speech Synthesis
 
 ![Screenshot](./screenshot.png)
 ## Inspiration
